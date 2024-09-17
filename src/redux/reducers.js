@@ -10,6 +10,8 @@ const cars = (state = [], action) => {
             const cars = [ ...state ]
             cars.splice(action.value, 1)
             return cars
+        case 'DELETE_MAKE':
+            return state.filter((_, i) => i !== action.value);
         default:
             return state
     }
@@ -17,6 +19,8 @@ const cars = (state = [], action) => {
 
 const makes = (state = [], action) => {
     switch(action.type) {
+        case 'FETCH_MAKES':
+            return action.value;
         default:
             return state
     }
